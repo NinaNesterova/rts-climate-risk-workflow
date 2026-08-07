@@ -1,0 +1,25 @@
+project:
+  name: "West Siberian Arctic RTS"
+  region: "West Siberian Arctic"
+  subregions:
+    - "Yamal Peninsula"
+    - "Gydan Peninsula"
+
+paths:
+  aoi: "data/study_area/aoi.geojson"
+
+datasets:
+  arcticdem:
+    raw: "data/arcticdem/adem_raw.icechunk"
+    output: "data/arcticdem/adem.zarr"
+
+processing:
+  arcticdem:
+    resolution_m: 2
+    chunk_size_x: 3600
+    chunk_size_y: 3600
+
+compute:
+  n_workers: 10
+  threads_per_worker: 4
+  memory_limit: "20GB"
