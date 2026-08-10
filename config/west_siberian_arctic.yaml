@@ -18,6 +18,137 @@ processing:
     resolution_m: 2
     chunk_size_x: 3600
     chunk_size_y: 3600
+  headwall_retreat:
+    target_crs: "EPSG:32643"
+    step_m: 1.0
+    max_buffer_m: 500
+    certain_codes:
+      - "0"
+      - "40"
+
+    sites:
+      G1:
+        apply_certainty_filter: true
+        
+        excluded_rts:
+          - "C337"
+          - "C339"
+        
+        output_dir: "data/outputs/headwall_retreat/G1"  
+
+        observations:
+          1964:
+            path: "data/rts_polygons/G1/G1_1964.geojson"
+            force_all_certain: false
+
+          1984:
+            path: "data/rts_polygons/G1/G1_1984.geojson"
+            force_all_certain: false
+
+          2024:
+            path: "data/rts_polygons/G1/G1_2024.geojson"
+            force_all_certain: true
+
+        intervals:
+          - early: 1964
+            late: 1984
+
+          - early: 1964
+            late: 2024
+
+          - early: 1984
+            late: 2024
+      G2:
+        apply_certainty_filter: true
+        output_dir: "data/outputs/headwall_retreat/G2"
+
+        observations:
+          1964:
+            path: "data/rts_polygons/G2/G2_1964.geojson"
+            force_all_certain: false
+          1984:
+            path: "data/rts_polygons/G2/G2_1984.geojson"
+            force_all_certain: false
+          2024:
+            path: "data/rts_polygons/G2/G2_2024.geojson"
+            force_all_certain: true
+
+        intervals:
+          - early: 1964
+            late: 1984
+          - early: 1964
+            late: 2024
+          - early: 1984
+            late: 2024
+
+      G3:
+        apply_certainty_filter: true
+        output_dir: "data/outputs/headwall_retreat/G3"
+
+        observations:
+          1972:
+            path: "data/rts_polygons/G3/G3_1972.geojson"
+            force_all_certain: false
+          1977:
+            path: "data/rts_polygons/G3/G3_1977.geojson"
+            force_all_certain: false
+          1982:
+            path: "data/rts_polygons/G3/G3_1982.geojson"
+            force_all_certain: false
+          2024:
+            path: "data/rts_polygons/G3/G3_2024.geojson"
+            force_all_certain: false
+
+        intervals:
+          - early: 1972
+            late: 1977
+          - early: 1977
+            late: 1982
+          - early: 1972
+            late: 1982
+          - early: 1972
+            late: 2024
+          - early: 1982
+            late: 2024
+
+      Y1:
+        apply_certainty_filter: true
+        output_dir: "data/outputs/headwall_retreat/Y1"
+
+        observations:
+          1969:
+            path: "data/rts_polygons/Y1/Y1_1969.geojson"
+            force_all_certain: false
+          1984:
+            path: "data/rts_polygons/Y1/Y1_1984.geojson"
+            force_all_certain: false
+          2024:
+            path: "data/rts_polygons/Y1/Y1_2024.geojson"
+            force_all_certain: true
+
+        intervals:
+          - early: 1969
+            late: 1984
+          - early: 1969
+            late: 2024
+          - early: 1984
+            late: 2024
+
+      Y2:
+        apply_certainty_filter: false
+        output_dir: "data/outputs/headwall_retreat/Y2"
+
+        observations:
+          1972:
+            path: "data/rts_polygons/Y2/Y2_1972.geojson"
+            force_all_certain: false
+          2024:
+            path: "data/rts_polygons/Y2/Y2_2024.geojson"
+            force_all_certain: false
+
+        intervals:
+          - early: 1972
+            late: 2024
 
 compute:
   n_workers: 10
